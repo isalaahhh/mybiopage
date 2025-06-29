@@ -1,0 +1,194 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #343a40;
+}
+
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #343a40;
+    color: #F0F0F0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    font-weight: 700;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.8s ease-out;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#splash-screen.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#main-content {
+    opacity: 0;
+    transition: opacity 0.8s ease-in;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #343a40;
+    position: relative;
+    overflow: hidden;
+}
+
+#main-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+    transition: background-color 0.6s ease-in;
+}
+
+#main-content.visible {
+    opacity: 1;
+    position: relative;
+}
+
+#main-content.visible::before {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.hidden {
+    display: none;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 570px;
+    width: 90%;
+    margin: 20px;
+    box-sizing: border-box;
+}
+
+.profile-pic {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 2.2em;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+p {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    color: #3c3a3a;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.link-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #007bff;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.link-button img {
+    width: 28px;
+    height: 28px;
+    margin-right: 12px;
+}
+
+.link-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+}
+
+.link-button:active {
+    transform: translateY(0);
+}
+
+.link-button.instagram {
+    background: linear-gradient(45deg, #FF69B4 0%, #FF4500 25%, #FF0000 50%, #DC143C 75%, #C71585 100%);
+    color: white;
+}
+
+.link-button.instagram:hover {
+    background: linear-gradient(45deg, #E05C9A 0%, #E03E00 25%, #E00000 50%, #B81133 75%, #A1116B 100%);
+}
+
+.link-button.tiktok {
+    background: linear-gradient(to right, #000000, #EE1D52);
+}
+
+.link-button.tiktok:hover {
+    background: linear-gradient(to right, #333333, #d11a4a);
+}
+
+.link-button.spotify { background-color: #1db954; }
+.link-button.spotify:hover { background-color: #1ed760; }
+
+.link-button.github img {
+    filter: invert(100%)
+}
+
+.link-button.github { background-color: #1a1a1a; }
+.link-button.github:hover { background-color: #000; }
+
+@media (max-width: 600px) {
+    #splash-screen {
+        font-size: 2em;
+    }
+}
